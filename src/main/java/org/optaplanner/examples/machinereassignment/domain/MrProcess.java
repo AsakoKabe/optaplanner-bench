@@ -33,7 +33,6 @@ public class MrProcess extends AbstractPersistable {
 
     // Order is equal to resourceList so resource.getIndex() can be used
     private List<MrProcessRequirement> processRequirementList;
-    private Map<MrResource, Long> usageMap = new HashMap<MrResource, Long>();
 
     public MrService getService() {
         return service;
@@ -57,12 +56,6 @@ public class MrProcess extends AbstractPersistable {
 
     public void setProcessRequirementList(List<MrProcessRequirement> processRequirementList) {
         this.processRequirementList = processRequirementList;
-        this.usageMap.clear();
-        for(MrProcessRequirement mpr: processRequirementList) {
-            if (mpr.getUsage() > 0) {
-                this.usageMap.put(mpr.getResource(), mpr.getUsage());
-            }
-        }
     }
 
     public MrProcessRequirement getProcessRequirement(MrResource resource) {
@@ -70,11 +63,7 @@ public class MrProcess extends AbstractPersistable {
     }
 
     public long getUsage(MrResource resource) {
-        Long usage = usageMap.get(resource);
-        if (usage == null) {
-            throw new NoSuchElementException();
-        }
-        return usage;
+        return processRequirementList.get(resource.getIndex()).getUsage();
     }
 
     public int getUsageMultiplicand() {
