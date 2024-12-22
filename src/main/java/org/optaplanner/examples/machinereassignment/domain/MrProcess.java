@@ -16,14 +16,10 @@
 
 package org.optaplanner.examples.machinereassignment.domain;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.NoSuchElementException;
-
-import org.optaplanner.examples.common.domain.AbstractPersistable;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
+import org.optaplanner.examples.common.domain.AbstractPersistable;
 
 @XStreamAlias("MrProcess")
 public class MrProcess extends AbstractPersistable {

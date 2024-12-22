@@ -16,7 +16,6 @@
 
 package org.optaplanner.examples.machinereassignment.domain;
 
-import java.util.NoSuchElementException;
 import java.util.Objects;
 
 import com.thoughtworks.xstream.annotations.XStreamAlias;
@@ -99,5 +98,4 @@ public class MrProcessAssignment extends AbstractPersistable {
     public String toString() {
         return process.toString();
     }
-
 }
